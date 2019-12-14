@@ -83,3 +83,5 @@ instructions
 ssmtp_contacts_brief.csv
 text_from_command_line
 /contacts.csv
+/tests/
+__pycache__/

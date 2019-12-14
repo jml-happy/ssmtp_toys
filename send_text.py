@@ -22,23 +22,12 @@ while not carrier_str.isdigit() or 1 != len(carrier_str):
         sys.exit()
 
 carrier_int = int(carrier_str)
-
-sms_num_int = int(sms_num_str)
-sms_area_code_str = sms_num_str[0:3]
-sms_area_code_int = int(sms_area_code_str)
-
-sms_prefix_str = sms_num_str[3:6]
-sms_prefix_int = int(sms_prefix_str)
-
-sms_suffix_str = sms_num_str[6:10]
-sms_suffix_int = int(sms_suffix_str)
-
 carrier_keys = { 1: "SPRINT", 2: "ATT", 3: "VERIZON", 4: "TMOBILE" }
+
 carrier = carrier_keys[carrier_int]
 sms_gateway = gateways.carrier_dict[carrier]
 
-print(carrier)
-print(sms_gateway)
-print(sms_area_code_int)
-print(sms_prefix_int)
-print(sms_suffix_int)
+# ##### Start sending message
+
+ssmtp_address = sms_num_str + '@' + sms_gateway
+print(ssmtp_address)
