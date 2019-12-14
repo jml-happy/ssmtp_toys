@@ -1,0 +1,16 @@
+Subject: HI HI HI
+From: user@domain.TLD
+Content-Type: text/html; charset="utf8"
+
+
+<html>
+<body>
+<div style="
+    background-color:
+    #abcdef; width: 300px;
+    height: 300px;
+    ">
+</div>
+Email Message Goes Here
+</body>
+</html>
