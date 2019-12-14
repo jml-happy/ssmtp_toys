@@ -2,7 +2,7 @@
 
 import sys
 import subprocess
-from sms import gateways
+import gateways
 
 # TODO: make this a bash script because running bashscripts from python isn't best?
 sms_num_str = input("Enter phonenumber as 10-digits, no spaces (0 to cancel): ")
@@ -38,4 +38,5 @@ print(ssmtp_address)
 
 # I'm aware this is the wrong way to send an email from python.  The project is called ssmtp_toys !!!!
 # See the snippet sendmail.py for an smtplib module example
+print("Enter your message, then press Ctrl+D: ")
 subprocess.run('ssmtp -v ' + ssmtp_address, shell=True, check=True)
