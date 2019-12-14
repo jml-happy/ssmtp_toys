@@ -1,6 +1,10 @@
-import sys
-import gateways
+# IMPORTANT: This is just a toy script and is not meant to be robust, follow best practices, or anything like that.
 
+import sys
+import subprocess
+from sms import gateways
+
+# TODO: make this a bash script because running bashscripts from python isn't best?
 sms_num_str = input("Enter phonenumber as 10-digits, no spaces (0 to cancel): ")
 if '0' == sms_num_str:
     sys.exit()
@@ -22,7 +26,7 @@ while not carrier_str.isdigit() or 1 != len(carrier_str):
         sys.exit()
 
 carrier_int = int(carrier_str)
-carrier_keys = { 1: "SPRINT", 2: "ATT", 3: "VERIZON", 4: "TMOBILE" }
+carrier_keys = {1: "SPRINT", 2: "ATT", 3: "VERIZON", 4: "TMOBILE"}
 
 carrier = carrier_keys[carrier_int]
 sms_gateway = gateways.carrier_dict[carrier]
@@ -31,3 +35,7 @@ sms_gateway = gateways.carrier_dict[carrier]
 
 ssmtp_address = sms_num_str + '@' + sms_gateway
 print(ssmtp_address)
+
+# I'm aware this is the wrong way to send an email from python.  The project is called ssmtp_toys !!!!
+# See the snippet sendmail.py for an smtplib module example
+subprocess.run('ssmtp -v ' + ssmtp_address, shell=True, check=True)

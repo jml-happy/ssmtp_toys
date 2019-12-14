@@ -9,7 +9,7 @@ fromAdd = smtpUser
 subject = 'Python Test'
 header = 'To: ' + toAdd + '\n' + 'From: ' + fromAdd + '\n' + 'Subject: ' + subject
 body = 'From within a Python script'
-s = smtplib.SMTP('smtp.gmail.com',587()
+s = smtplib.SMTP('smtp.gmail.com',587)
 s.starttls()
 s.ehlo()
 s.login(smtpUser, smtpPass)
